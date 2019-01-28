@@ -13,6 +13,13 @@ for i = 1:length(RANSAC{file_id}.TIME_STAMP)
 end
 ylabel('x[m]')
 
+t0 = RANSAC{file_id}.TIME(1);
+deltaT = RANSAC{file_id}.TIME-t0;
+[k1,k0] = leastSquareFit(deltaT,RANSAC{file_id}.X_MEAS-RANSAC{file_id}.X_PRE);
+
+
+
+
 subplot(2,1,2)
 hold on
 plot(RANSAC{file_id}.TIME,RANSAC{file_id}.Y_PRE);
@@ -52,4 +59,10 @@ end
 ylabel('y[m]')
 xlabel('time[S]')
 
+end
+
+function [k1,k0] = leastSquareFit(t,x)
+p = polyfit(t,x,1);
+k1 = p(1);
+k0 = p(2);
 end

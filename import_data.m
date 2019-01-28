@@ -62,6 +62,10 @@ OB.VX_CMD = data(:,55);
 OB.VY_CMD = data(:,56);
 
 OB.TIME = data(:,1);
+t0 = OB.TIME(1);
+for i = 1:length(OB.TIME)
+   OB.TIME(i) =  (OB.TIME(i)-t0)/512;
+end
 
 p = 1;
 
@@ -94,7 +98,6 @@ end
 p = 1;
 for i = 2:length(OB.TIME)
     if OB.DETECT_X_E(i) ~= 0 && OB.DETECT_X_E(i) ~= OB.DETECT_X_E(i-1)
-        %OB.DETEC_TIME_E(p) = OB.TIME(i);
         OB.DETEC_TIME_E(p) = OB.TIME(i);
         OB.DETEC_X_E(p) = OB.DETECT_X_E(i);
         OB.DETEC_X_OT(p) = OB.X_OT(i);

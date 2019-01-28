@@ -5,10 +5,10 @@ FLAG_PART_PLOT = 0;
 FLAG_LABEL_DATA = 0;
 
 if FLAG_PART_PLOT
-    m1 = 149;
-    n1 = 159;
-    m = 3622;
-    n = 3672;
+    m1 = 22;
+    n1 = 97;
+    m = 1026;
+    n = 2562;
 else
     m1 = 1;
     n1 = length(OB.DETEC_X_E);
@@ -74,6 +74,6 @@ xlabel('time [s]')
 % plot(OB.DETEC_TIME_E(m1:n1),OB.DETEC_STAMP(m1:n1),'.')
 % xlabel('time [s]')
 % ylabel('time stamp')
-grid on
+% grid on
 
 end
