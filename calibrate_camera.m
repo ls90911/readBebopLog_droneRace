@@ -16,7 +16,7 @@ for i = 1:length(OB.DETEC_TIME_LOCAL)
     
 end
 
- p_x = polyfit(OB.DETEC_X_LOCAL',local_detection_error_x,2);
+ p_x = polyfit(OB.DETEC_X_LOCAL',local_detection_error_x,1);
  fitted_x = polyval(p_x,OB.DETEC_X_LOCAL);
  p_y = polyfit(OB.DETEC_Y_LOCAL',local_detection_error_y,2);
  fitted_y = polyval(p_y,OB.DETEC_Y_LOCAL);
@@ -31,11 +31,10 @@ compensate_y = zeros(length(OB.DETEC_TIME_LOCAL),1);
 
 
 for i = 1:length(OB.DETEC_TIME_LOCAL)
-     compensate_x(i) = OB.DETEC_X_LOCAL(i) + (OB.DETEC_X_LOCAL(i)^2*p_x(1)+p_x(2)*OB.DETEC_X_LOCAL(i)+p_x(3));
+%     compensate_x(i) = OB.DETEC_X_LOCAL(i) + (OB.DETEC_X_LOCAL(i)^2*p_x(1)+p_x(2)*OB.DETEC_X_LOCAL(i)+p_x(3));
 %     compensate_y(i) = OB.DETEC_Y_LOCAL(i) + (OB.DETEC_X_LOCAL(i)*p_y(1)+p_y(2));
 
-%     compensate_x(i) = OB.DETEC_X_LOCAL(i) + p_x(1)+p_x(2)*OB.DETEC_X_LOCAL(i)+p_x(3)*OB.DETEC_Y_LOCAL(i)+...
-%     p_x(4)*OB.DETEC_X_LOCAL(i)*OB.DETEC_Y_LOCAL(i);
+     compensate_x(i) = OB.DETEC_X_LOCAL(i) + p_x(1)+p_x(2)*OB.DETEC_X_LOCAL(i);
     compensate_y(i) = OB.DETEC_Y_LOCAL(i) +(OB.DETEC_Y_LOCAL(i)^2*p_y(1)+p_y(2)*OB.DETEC_Y_LOCAL(i)+p_y(3));
 end
 

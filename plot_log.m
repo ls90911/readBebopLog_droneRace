@@ -16,10 +16,10 @@ debug_ransac_pos(1)
 %plot_velocity(3)
 %calibrate_camera(8);
 %plot_3d_trajectory(3);
-%plot_command(8)
+plot_command(8)
 %plot_PID_term(6)
 %calibrate_camera_NN(1)
-%debug_cascade_controller(5);
+debug_cascade_controller(5);
  %map_square_area_with_distance(1)
 end
 
