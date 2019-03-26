@@ -53,13 +53,33 @@ OB.RANSAC_VX = data(:,48);
 OB.RANSAC_VY = data(:,49);
 OB.DETECTION_STAMP = data(:,50);
 
-OB.P_TERM_X = data(:,51);
-OB.D_TERM_X = data(:,52);
+OB.AX_CMD = data(:,51);
+OB.AY_CMD = data(:,52);
 OB.P_TERM_Y = data(:,53);
 OB.D_TERM_Y = data(:,54);
 
 OB.VX_CMD = data(:,55);
 OB.VY_CMD = data(:,56);
+
+OB.X_SP = data(:,57);
+OB.Y_SP = data(:,58);
+OB.Z_SP = data(:,59);
+OB.PSI_SP = data(:,60);
+OB.X_REF = data(:,61);
+OB.Y_REF = data(:,62);
+OB.DIS_GATE = data(:,63);
+OB.X_REF_LOCAL = data(:,64);
+OB.Y_REF_LOCAL = data(:,65);
+
+OB.R_REF = data(:,66);
+OB.PSI_ERR = data(:,67);
+OB.R_MAX = data(:,68);
+
+OB.Z_SP = data(:,69);
+OB.VZ_SP = data(:,70);
+OB.Z_OT = data(:,71);
+
+OB.GATE_ASSIGN = data(:,72);
 
 OB.TIME = data(:,1);
 t0 = OB.TIME(1);
@@ -70,6 +90,7 @@ end
 p = 1;
 
 psi = -32.5/180*pi;
+%psi = 0/180*pi;
 rot_mat = [cos(psi) sin(psi);
     -sin(psi) cos(psi)];
 for i = 1:length(OB.TIME)

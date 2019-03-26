@@ -5,10 +5,10 @@ FLAG_PART_PLOT = 0;
 FLAG_LABEL_DATA = 0;
 
 if FLAG_PART_PLOT
-    m1 = 22;
-    n1 = 97;
-    m = 1026;
-    n = 2562;
+    m1 = 175;
+    n1 = 188;
+%     m = 1026;
+%     n = 2562;
 else
     m1 = 1;
     n1 = length(OB.DETEC_X_E);
@@ -24,8 +24,10 @@ subplot(2,1,1)
 hold on
 plot(OB.TIME(m:n),OB.X_OT(m:n));
 plot(OB.TIME(m:n),OB.FILTERED_X(m:n));
-plot(OB.TIME(m:n),OB.PRE_X(m:n));
+%plot(OB.TIME(m:n),OB.PRE_X(m:n));
+plot(OB.TIME(m:n),OB.X_REF(m:n));
 plot(OB.DETEC_TIME_E(m1:n1),OB.DETEC_X_E(m1:n1),'.');
+%plot(OB.TIME(m:n),OB.GATE_NUM(m:n))
 
 if FLAG_LABEL_DATA
     for i = m1:n1
@@ -35,14 +37,16 @@ if FLAG_LABEL_DATA
 end
 
 ylabel('x [m]')
-legend('OT','filtered','prediction','measurement')
+legend('OT','filtered','ref','meas')
 grid on
 subplot(2,1,2)
 hold on
 plot(OB.TIME(m:n),OB.Y_OT(m:n));
 plot(OB.TIME(m:n),OB.FILTERED_Y(m:n));
-plot(OB.TIME(m:n),OB.PRE_Y(m:n));
+%plot(OB.TIME(m:n),OB.PRE_Y(m:n));
+plot(OB.TIME(m:n),OB.Y_REF(m:n));
 plot(OB.DETEC_TIME_E(m1:n1),OB.DETEC_Y_E(m1:n1),'.');
+%plot(OB.TIME(m:n),OB.GATE_NUM(m:n))
 
 if FLAG_LABEL_DATA
     for i = m1:n1
@@ -60,15 +64,12 @@ xlabel('time [s]')
 % subplot(2,1,1)
 % hold on
 % plot(OB.TIME(m:n),OB.RANSAC_X(m:n))
-% plot(OB.TIME(m:n),OB.RANSAC_VX(m:n))
-% legend('ransac_x','ransac_vx')
-% grid on
+% ylabel('ransac x [m]')
 % subplot(2,1,2)
 % hold on
 % plot(OB.TIME(m:n),OB.RANSAC_Y(m:n))
-% plot(OB.TIME(m:n),OB.RANSAC_VY(m:n))
-% legend('ransac_y','ransac_vy')
-% grid on
+% ylabel('ransac y [m]')
+% xlabel('time [s]')
 % 
 % figure(plot_num+2)
 % plot(OB.DETEC_TIME_E(m1:n1),OB.DETEC_STAMP(m1:n1),'.')
