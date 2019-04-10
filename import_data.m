@@ -89,7 +89,7 @@ end
 
 p = 1;
 
-psi = -32.5/180*pi;
+psi = -0/180*pi;
 %psi = 0/180*pi;
 rot_mat = [cos(psi) sin(psi);
     -sin(psi) cos(psi)];
